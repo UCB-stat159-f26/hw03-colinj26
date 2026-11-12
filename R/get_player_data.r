@@ -1,4 +1,5 @@
-#' @title get_data function
+#' Get full match history and personal information for a professional tennis player
+#' @title get_player_data function
 #' @param name Tennis player name - e.g "Roger Federer"
 #' @return Dataframe with dates of matches, results, and ages of both players in a match
 #' @export
