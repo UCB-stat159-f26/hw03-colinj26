@@ -1,4 +1,8 @@
-library(ggplot2)
+#' Plot player age against age difference with opponents for all matches
+#' @title make_age_plot function
+#' @param df Tennis player cleaned df from get_player_data()
+#' @return ggplot object
+#' @export
 make_age_plot <- function(df) {
     ggplot(data = df, aes(x = player_age, y = age_diff, color = wl))+
     geom_point(alpha = 0.7)+
