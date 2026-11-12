@@ -2,6 +2,7 @@
 #' @title make_age_plot function
 #' @param df Tennis player cleaned df from get_player_data()
 #' @return ggplot object
+#' @import ggplot2
 #' @export
 make_age_plot <- function(df) {
     ggplot(data = df, aes(x = player_age, y = age_diff, color = wl))+
