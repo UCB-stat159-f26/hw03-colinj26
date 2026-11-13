@@ -6,6 +6,12 @@
 
 **Background:** The aim of this package is to introduce two public functions, get_player_data() and make_age_plot(), with several private helper functions, to retrieve a data frame of career matches from any professional tennis player, clean the data frame, and produce a plot similar to the Serena Williams plot from Homework 2. The final plot will display a given player's age on the x-axis and the age difference with an opponent on the y-axis for a given game. Each game is marked with a point on a scatter plot and colored blue for a win and purple for a loss. With the get_player_data() function, there are 4 helper functions that shorten the overall code of the public function to a few lines. For the make_age_plot() function, there are no helper functions, as the code focuses on a short ggplot object construction for a given player. These functions, when used together, will work for any player with career matches and background information (a player's age) that is found at tennisabstract.com. 
 
+**Two Public Functions:**
+
+-> **get_player_data()** - Retrieves player data for a selected player 
+
+-> **make_age_plot()** - Makes a ggplot illustrating age and match statistics
+
 **Goals:** There are a couple of key considerations that must be observed in order to ensure that the functions work properly:
 1. Ensure that get_player_data() works on male data, which has opponent ages already stored in the career data
 2. Ensure that get_player_data() works on female data, which does not have opponent ages already stored in the career data
@@ -54,6 +60,7 @@ hw03-colinj26/
 ```
 
 **Description:** 
+
 (1) The code for all public functions is found under the R folder as get_player_data.r and make_age_plot.r 
 
 (2) roxygen comments are documented in the man folder 
