@@ -1,9 +1,7 @@
 download_player_files <- function(slug) {
   base <- "https://www.tennisabstract.com/jsmatches/"
-
   file_career <- tempfile(fileext = ".js")
   file_main   <- tempfile(fileext = ".js")
-
   tryCatch({
     download.file(paste0(base, slug, "Career.js"), destfile = file_career, quiet = TRUE)
     download.file(paste0(base, slug, ".js"),       destfile = file_main,   quiet = TRUE)}, error = function(e) 
