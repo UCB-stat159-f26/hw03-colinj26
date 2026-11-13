@@ -20,6 +20,6 @@ theme( panel.background = element_rect(fill = "white", color = NA),
         plot.title = element_text(family = "serif", face = "bold", size = 10)
     )+
 geom_hline(yintercept=0, alpha = 0.5)+
-scale_x_continuous(position = "top", breaks = c(12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44), limits = c(10,50))+
-scale_y_continuous(breaks = c(-20, -10, 0, 10, 20), labels = c("Younger than opponent -20", "-10", "Same age", "+10", "+20 years Older than opponent"), limits = c(-20,30))
+scale_x_continuous(position = "top", breaks = c(12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48), limits = c(10,50))+
+scale_y_continuous(breaks = c(-20, -10, 0, 10, 20), labels = c("Younger than opponent -20", "-10", "Same age", "+10", "+20 years Older than opponent"), limits = c(-30,30))
 }
