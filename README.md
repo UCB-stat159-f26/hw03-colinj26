@@ -52,21 +52,42 @@ hw03-colinj26/
 ├── README.md
 ├── tennispackage.Rproj
 ```
+
+**Description:** 
+(1) The code for all public functions is found under the R folder as get_player_data.r and make_age_plot.r 
+
+(2) roxygen comments are documented in the man folder 
+
+(3) Local files for testing are found in tests/testthat/fixtures
+
+(4) All relevant tests are found in tests/testthat/testthat.R
+
+(5) Other relevant metadata, documentation, and licensing can be found in the DESCRIPTION, LICENSE, LICENSE.md, NAMESPACE, and README.md files 
+
 -----------------------------
 # Tests 
 
 **Description:** All tests are contained within tests/test-tennis.R. All local sample .js files are stored inside of tests/testthat/fixtures. The tests ran are strictly on the locally stored data files. as such, the helper function, which is the last function used in the get_player_data() function, make_ages_df() is employed here as it uses .js files. For the plot tests, the public make_age_plot() function is tested here. All tests pass when assessed.
 
+**Running Tests:** If the package is installed using the above instructions, all tests can be run using:
+> devtools::test()
+
 -----------------------------
 # Instructions 
 
 (1) **Installing the Package:** Use the following command in the r console to download the package: 
-devtools::install_github("/hw03-colinj26")
+> devtools::install_github("UCB-stat159-f26/hw03-colinj26")
 
-(2) **Load in the library:** Once the package has been downloaded, load it in as a library. Use the following call to do so: 
-library(tennispackage)
+(2) **Load in the library:** Once the package has been downloaded, load it in as a library. Use the following command in the r console to do so: 
+> library(tennispackage)
 
-(3) **Use both functions:** Now that the functions are sufficiently loaded in, both functions can be utilized on sample players. These functions can be utilized in the r console, an r code chunk, or an r file. 
+(3) **Use both functions:** Now that the functions are sufficiently loaded in, both functions can be utilized on sample players. These functions can be utilized in the r console, an r code chunk, or an r file. Those public functions are as follows: 
+
+- **get_player_data()**
+-> loads in player data as an r dataframe object from the web 
+
+- **make_age_plot()**
+-> creates a ggplot similar to the Serena Williams plot of matches played colored by wins and losses with a player's age on the x-axis and the age difference with their opponent on the y-axis
 
 -----------------------------
 # Personal Reflections
