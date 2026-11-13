@@ -46,10 +46,16 @@ hw03-colinj26/
 ├── tennispackage.Rproj
 ```
 -----------------------------
+# Tests 
+
+**Description:** All tests are contained within tests/test-tennis.R. All local sample .js files are stored inside of tests/testthat/fixtures. The tests ran are 
+
+
+
 # Instructions 
 
 (1) **Installing the Package:** Use the following command in the r console to download the package: 
-devtools::install_github("colinj26/hw03-colinj26")
+devtools::install_github("/hw03-colinj26")
 
 (2) **Load in the library:** Once the package has been downloaded, load it in as a library. Use the following call to do so: 
 library(tennispackage)
@@ -63,7 +69,7 @@ library(tennispackage)
 
 (2) **Helper Functions:** Helper functions aid significantly in deconstructing a complex function into a much more digestible one for an individual making a package. In particular, if portions of the function fail, it is easy to detect which helper function needs more careful attention. 
 
-
+**Overall Thoughts:** The construction of this package was an extremely valuable endeavor that illuminated how important it is to create packages that are transparent and well constructed. In particular, having very clear function files that execute very specific tasks seemingly involves numerous operations and helper functions to ensure that everything runs smoothly. I particularly learned that the way in which functions can be envoloped or used as a dependency for one another in a single larger function is pivotal for package construction. This is especially valuable for functions like get_player_data(). I also learned that any excess files that are not necessarily used in a certain package, such as markdown files or an .Rproj file must be placed in the .Rbuildignore file to ensure that there are no errors in package downloading. Finally, it was valuable to see how tests can be used to ensure that functions work properly. Examining the plethora of "expect" commands demonstrates the various ways in which functions can be tested. 
 
 
 
