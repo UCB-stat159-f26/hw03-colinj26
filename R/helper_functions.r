@@ -9,7 +9,6 @@ download_player_files <- function(slug) {
     download.file(paste0(base, slug, ".js"),       destfile = file_main,   quiet = TRUE)}, error = function(e) 
     {stop("Couldn't find a player matching \"", slug, "\". Check the spelling.", call. = FALSE)}, warning = function(w) 
     {stop("Couldn't find a player matching \"", slug, "\". Check the spelling.", call. = FALSE)})
-
   c(career = file_career, main = file_main)
 }
 
@@ -35,7 +34,6 @@ get_player_birthday <- function(json) {
 make_ages_df <- function(career_file, main_file) {
   df  <- convert_to_df(career_file)
   dob <- get_player_birthday(main_file)
-
   df$date <- as.Date(df$date, format = "%Y%m%d")
   ob <- as.character(df$obday)
   df$opp_age <- ifelse(nchar(ob) == 8,
@@ -43,7 +41,6 @@ make_ages_df <- function(career_file, main_file) {
                        suppressWarnings(as.numeric(ob)))
   df$player_age <- as.numeric(df$date - dob) / 365.25
   df$age_diff   <- df$player_age - df$opp_age
-
   out <- df[, c("date", "wl", "player_age", "opp_age", "age_diff")]
   return(out)
 }
