@@ -26,8 +26,12 @@ https://www.tennisabstract.com/jsmatches/playername.js
 # Package Structure 
 **Visual Diagram** 
 
+
 ```
 hw03-colinj26/
+└── man/
+	├── get_player_data.Rd
+	├── make_age_plot.Rd
 └── R/
 	├── get_player_data.r
 	├── helper_functions.r
@@ -42,16 +46,18 @@ hw03-colinj26/
 ├── .gitignore
 ├── .Rbuildignore
 ├── DESCRIPTION 
+├── LICENSE
+├── LICENSE.md
 ├── NAMESPACE
+├── README.md
 ├── tennispackage.Rproj
 ```
 -----------------------------
 # Tests 
 
-**Description:** All tests are contained within tests/test-tennis.R. All local sample .js files are stored inside of tests/testthat/fixtures. The tests ran are 
+**Description:** All tests are contained within tests/test-tennis.R. All local sample .js files are stored inside of tests/testthat/fixtures. The tests ran are strictly on the locally stored data files. as such, the helper function, which is the last function used in the get_player_data() function, make_ages_df() is employed here as it uses .js files. For the plot tests, the public make_age_plot() function is tested here. All tests pass when assessed.
 
-
-
+-----------------------------
 # Instructions 
 
 (1) **Installing the Package:** Use the following command in the r console to download the package: 
