@@ -1,4 +1,4 @@
-#' Get full match history and personal information for a professional tennis player
+#' Returns an r dataframe that contains match outcome data for a given player, including win/loss results and age information for the selected player and their opponent.
 #' @title get_player_data function
 #' @param name Tennis player name - e.g "Roger Federer"
 #' @return Dataframe with dates of matches, results, and ages of both players in a match

@@ -1,4 +1,4 @@
-#' Plot player age against age difference with opponents for all matches
+#' Returns a ggplot dot plot displaying player age against age difference with opponents. Dots are colored by win/loss results for the searched player.
 #' @title make_age_plot function
 #' @param df Tennis player cleaned df from get_player_data()
 #' @return ggplot object
