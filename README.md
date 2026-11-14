@@ -24,7 +24,7 @@
 -> All career files for players are found through a function that appends a player's name to the url:
 https://www.tennisabstract.com/jsmatches/playernameCareer.js
 
-(2) Main Files
+(2) Main (Age) Files
 -> All main files with player information, including birthdays, are found through a function that appends a player's name to the url:
 https://www.tennisabstract.com/jsmatches/playername.js
 
@@ -91,9 +91,9 @@ hw03-colinj26/
 -----------------------------
 # Tests 
 
-**Description:** All tests are contained within tests/test-tennis.R. All local sample .js files are stored inside of tests/testthat/fixtures. The tests ran are strictly on the locally stored data files. as such, the helper function, which is the last function used in the get_player_data() function, make_ages_df() is employed here as it uses .js files. For the plot tests, the public make_age_plot() function is tested here. All tests pass when assessed.
+**Description:** All tests are contained within tests/testthat/test-tennis.R. All local sample .js files are stored inside of tests/testthat/fixtures. The tests ran are strictly on the locally stored data files. as such, the helper function, which is the last helper function used in the get_player_data() function, make_ages_df(), is employed here as it uses .js files. For the plot tests, the public make_age_plot() function is tested here. All tests pass when assessed.
 
-**Running Tests:** If the package is installed using the above instructions, all tests can be run using:
+**Running Tests:** If the repository is installed to a local environment, all tests can be run using:
 > devtools::test()
 
 -----------------------------
