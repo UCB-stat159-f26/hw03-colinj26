@@ -1,3 +1,5 @@
+# NOTE: All helper functions are strictly used inside the get_player_data() function!
+
 download_player_files <- function(slug) {
   # A function that searches for tennisabstract player files, particularly career data and personal data
   base <- "https://www.tennisabstract.com/jsmatches/"
