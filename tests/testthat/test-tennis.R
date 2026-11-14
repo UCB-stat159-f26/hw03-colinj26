@@ -16,14 +16,14 @@ test_that("Main helper function works on male data sample", {
   expect_equal(df$opp_age[1], 22.264202601)
 })
 
-test_that("Make sure that plot function works on female data sample", {
+test_that("Plot function works on female data sample", {
   df <- make_ages_df(female_career, main_file)
   plot <- make_age_plot(df)
 
   expect_s3_class(plot, "ggplot")
 })
 
-test_that("Make sure that plot function works on male data sample", {
+test_that("Plot function works on male data sample", {
   df <- make_ages_df(male_career, main_file)
   plot <- make_age_plot(df)
 
