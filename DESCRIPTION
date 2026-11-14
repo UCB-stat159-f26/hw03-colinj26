@@ -1,9 +1,9 @@
 Package: tennispackage
-Title: What the Package Does (One Line, Title Case)
+Title: Tennis Player Data Extraction and Age Plot Functions
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Colin", "Johnston", , "colinj26@berkeley.edu", role = c("aut", "cre"))
+Description: This package contains two public functions, get_player_data() and make_age_plot(), alongside other helper functions. get_player_data() is a function that works to create a cleaned dataframe of a given tennis player containing career match information regarding win/loss outcomes, an opponent's age, and age difference with opponents. make_age_plot() works to take the cleaned dataframe and create a plot in ggplot2 that display the selected player's age on the x-axis and the age difference with their opponents on the y-axis.  
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
