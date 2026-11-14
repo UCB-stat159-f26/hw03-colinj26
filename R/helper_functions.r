@@ -1,4 +1,5 @@
 download_player_files <- function(slug) {
+  # A function that searches for tennisabstract player files, particularly career data and personal data
   base <- "https://www.tennisabstract.com/jsmatches/"
   file_career <- tempfile(fileext = ".js")
   file_main   <- tempfile(fileext = ".js")
@@ -11,6 +12,7 @@ download_player_files <- function(slug) {
 }
 
 convert_to_df <- function(json) {
+  # A function that convers the raw career .js file into a r dataframe object
   ct <- V8::v8()
   ct$source(json)
   rows <- ct$get("morematchmx", simplifyVector = FALSE)
@@ -23,6 +25,7 @@ convert_to_df <- function(json) {
 }
 
 get_player_birthday <- function(json) {
+  # A function that extracts the player's birthday from the personal data file
   ct2 <- V8::v8()
   ct2$source(json)
   dob <- as.Date(as.character(ct2$get("dob")), format = "%Y%m%d")
@@ -30,13 +33,12 @@ get_player_birthday <- function(json) {
 }
 
 make_ages_df <- function(career_file, main_file) {
+  # A file that cleans r dataframe of career history and creates all necessary age-related columns
   df  <- convert_to_df(career_file)
   dob <- get_player_birthday(main_file)
   df$date <- as.Date(df$date, format = "%Y%m%d")
   ob <- as.character(df$obday)
-  df$opp_age <- ifelse(nchar(ob) == 8,
-                       as.numeric(df$date - as.Date(ob, format = "%Y%m%d")) / 365.25,
-                       suppressWarnings(as.numeric(ob)))
+  df$opp_age <- ifelse(nchar(ob) == 8, as.numeric(df$date - as.Date(ob, format = "%Y%m%d")) / 365.25, suppressWarnings(as.numeric(ob)))
   df$player_age <- as.numeric(df$date - dob) / 365.25
   df$age_diff   <- df$player_age - df$opp_age
   out <- df[, c("date", "wl", "player_age", "opp_age", "age_diff")]
