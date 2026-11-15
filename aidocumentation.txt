@@ -1,0 +1,63 @@
+------
+Model: Claude 
+Version: Sonnet 5.5 Medium
+------
+File: get_player_data.r
+
+Prompt #1: How do I take the full name of any player and ensure that when it is split up that it gets recombined with the start of each word of the name to be capitalized?
+Output:  slug  <- paste0(toupper(substring(parts, 1, 1)), substring(parts, 2), collapse = "")
+
+------
+File: helper_functions.r
+
+Prompt #1: When downloading the tennis player's .js files, is there a way that I can download them such that they do not need to be stored in a data folder? Write the code to do so. 
+Output:   
+base <- "https://www.tennisabstract.com/jsmatches/"
+  file_career <- tempfile(fileext = ".js")
+  file_main   <- tempfile(fileext = ".js")
+
+Prompt #2: I want an error message to use text that states that a player could not be found, then state that player using the slug input that the user initially selected. How can I do this when the .js file is being downloaded?
+Output: 
+tryCatch({
+    download.file(paste0(base, slug, "Career.js"), destfile = file_career, quiet = TRUE)
+    download.file(paste0(base, slug, ".js"),       destfile = file_main,   quiet = TRUE)}, error = function(e) 
+    {stop("Couldn't find a player matching \"", slug, "\". Check the spelling.", call. = FALSE)}, warning = function(w) 
+    {stop("Couldn't find a player matching \"", slug, "\". Check the spelling.", call. = FALSE)})
+  c(career = file_career, main = file_main)
+
+Prompt #2: For a given player's date of birth, we will have to use their player profile .js link. How can I extract their date of birth from this? 
+Output: 
+dob <- as.Date(as.character(ct2$get("dob")), format = "%Y%m%d")
+
+Prompt #3: Male player's career data already has the age in decimal form of their opponent. Female player's career data does not have opponent's age but does have their birtdhay. How do I make sure that make_ages_df() can work with both cases?
+Output: 
+  ob <- as.character(df$obday)
+df$opp_age <- ifelse(nchar(ob) == 8, as.numeric(df$date - as.Date(ob, format = "%Y%m%d")) / 365.25, suppressWarnings(as.numeric(ob)))
+
+Prompt #4: Through using V8 and the bind rows argument, how do we get just the career match data and nothing else from the Career.js file of a player? 
+Output: 
+rows <- ct$get("morematchmx", simplifyVector = FALSE)
+  df <- dplyr::bind_rows(lapply(rows, function(r) as.data.frame(t(unlist(r)))))
+
+NOTE: V8 usage in convert_to_df() and get_player_data() was used in homework 2, which is why the function usage echoes that original usage. Please refer to the aidocumentation.txt in that assignment if needed. 
+
+------
+File: test-tennis.R
+
+Prompt #1: What is the best way to store the local .js files for testing purposes?
+Output:
+*Overview of description*: copy all into seperate .js files, place inside testthat/fixtures, ensure that a seperate file is made for finding a player's hypothetical date of birth
+
+Prompt #1: How do I call on the local .js files to construct tests? 
+Output: 
+female_career <- test_path("fixtures", "FemalePlayerCareer.js")
+male_career   <- test_path("fixtures", "MalePlayerCareer.js")
+main_file     <- test_path("fixtures", "MainPlayer.js")
+
+Prompt #2: If I want to test my make_age_plot() function to see if it returns a ggplot object, which function can I use? 
+Output: 
+expect_s3_class(plot, "ggplot")
+
+Prompt #3: What function checks if column titles match certain strings?
+Output: 
+expect_error()

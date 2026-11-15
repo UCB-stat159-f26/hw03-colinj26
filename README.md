@@ -51,6 +51,7 @@ hw03-colinj26/
 		├── test-tennis.R
 ├── .gitignore
 ├── .Rbuildignore
+├── aidocumentation.txt
 ├── DESCRIPTION 
 ├── LICENSE
 ├── LICENSE.md
